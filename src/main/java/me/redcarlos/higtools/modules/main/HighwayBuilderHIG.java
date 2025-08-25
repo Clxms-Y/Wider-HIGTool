@@ -119,9 +119,9 @@ public class HighwayBuilderHIG extends Module {
     private final Setting<Integer> width = sgGeneral.add(new IntSetting.Builder()
         .name("width")
         .description("Width of the highway.")
-        .defaultValue(6) // Changed this
-        .range(1, 9) // Changed this
-        .sliderRange(1, 9) // Changed this
+        .defaultValue(7)
+        .range(1, 9)
+        .sliderRange(1, 9)
         .build()
     );
 

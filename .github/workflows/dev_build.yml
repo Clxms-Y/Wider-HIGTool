@@ -1,14 +1,43 @@
 name: Publish Development Build
-on: push
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
         with:
-          java-version: 21
-          distribution: adopt
-      - name: Build
-        run: ./gradlew build
+          distribution: temurin
+          java-version: '21'
+
+      - name: Cache Gradle packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ runner.os }}-${{ hashFiles('**/gradle-wrapper.properties', '**/*.gradle*', '**/gradle/**/*.kts') }}
+          restore-keys: |
+            gradle-${{ runner.os }}-
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./gradlew
+
+      - name: Build (assemble & test)
+        run: ./gradlew --no-daemon build -x checkstyleMain
+
+      - name: Upload build artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dev-build-artifacts
+          path: build/libs/**/*.jar

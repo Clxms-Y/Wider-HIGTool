@@ -24,7 +24,7 @@ import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 
 public class HIGTools extends MeteorAddon {
-    public static final String MOD_ID = "higtools";
+    public static final String MOD_ID = "widehigtools";
     public static final ModMetadata METADATA;
     public static final String VERSION;
     public static final Category MAIN;

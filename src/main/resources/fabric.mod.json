@@ -1,18 +1,14 @@
 {
   "schemaVersion": 1,
-  "name": "HIGTools",
-  "id": "higtools",
+  "name": "Wider-HIGTools",
+  "id": "widehigtools",
   "version": "2.10.0",
   "description": "Highway Tools for Meteor Client but now wider.",
   "authors": [
     "RedCarlos26",
-    "Ethius"
+    "Ethius",
+    "o6r"
   ],
-  "contact": {
-    "issues": "https://github.com/RedCarlos26/HIGTools/issues",
-    "sources": "https://github.com/RedCarlos26/HIGTools",
-    "discord": "https://discord.gg/a4jkKGJNdJ"
-  },
   "license": "GPL-3.0",
   "icon": "assets/higtools/icon.png",
   "environment": "client",
@@ -26,12 +22,7 @@
   ],
   "accessWidener": "higtools.accesswidener",
   "custom": {
-    "meteor-client:color": "145,61,226",
-    "modmenu": {
-      "links": {
-        "modmenu.discord": "https://discord.gg/a4jkKGJNdJ"
-      }
-    }
+    "meteor-client:color": "145,61,226"
   },
   "depends": {
     "java": ">=21",

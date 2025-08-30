@@ -6,7 +6,7 @@ the changes are just those in `java/me/redcarlos/higtools/modules/main/HighwayBu
     private final Setting<Integer> width = sgGeneral.add(new IntSetting.Builder()
             .name("width")
             .description("Width of the highway.")
-            .defaultValue(6)
+            .defaultValue(7)
             .range(1, 9)
             .sliderRange(1, 9)
             .build()
